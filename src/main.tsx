@@ -5,7 +5,11 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 import { TempoDevtools } from "tempo-devtools";
-TempoDevtools.init();
+// Initialize Tempo Devtools with safe mode to prevent ethereum property conflicts
+TempoDevtools.init({
+  safeMode: true,
+  skipWindowModifications: ["ethereum"],
+});
 
 const basename = import.meta.env.BASE_URL;
 
